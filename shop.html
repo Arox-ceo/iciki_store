@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ICIKI SMP | Ranks</title>
+<style>
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #442063, #0f1d40);
+    color: #fff;
+}
+/* Navbar */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #4a1e78;
+    padding: 15px 30px;
+}
+.navbar img { height: 50px; cursor: pointer; }
+.discord-btn { background: #fcd05c; color: #000; font-weight: bold; padding: 8px 18px; border-radius: 20px; text-decoration: none; transition: 0.3s; font-family: "Press Start 2P", monospace; font-size: 12px; }
+.discord-btn:hover { background: #ffbd59; transform: scale(1.05); }
+
+/* Layout */
+.container { display: flex; padding: 20px; }
+
+/* Sidebar */
+.sidebar {
+  background: linear-gradient(135deg, #2c1f47, #0f1d40);
+  padding: 20px;
+  border-radius: 20px;
+  width: 220px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  height: auto;
+  align-self: flex-start;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+}
+.sidebar a {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 12px;
+  color: #ffffff;
+  font-weight: bold;
+  text-decoration: none;
+  font-size: 16px;
+  padding: 12px;
+  transition: all 0.3s ease;
+}
+.sidebar a img { width: 24px; height: 24px; }
+.sidebar a:hover { background: rgba(255, 255, 255, 0.15); transform: translateX(5px); }
+
+/* Content */
+.content { flex: 1; margin-left: 30px; max-width: 1000px; margin: 0 auto; }
+
+/* Judul Ranks */
+.title-box {
+  background: #2c1f47;
+  color: #ffda52;
+  text-align: center;
+  padding: 20px 0;
+  border-radius: 20px;
+  font-size: 28px;
+  font-weight: bold;
+  border: 3px solid #6a4caf;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+  margin-bottom: 20px;
+}
+
+/* Shop Grid */
+.shop-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 25px; }
+
+/* Card Style */
+.card {
+  background: #2c1f47;
+  border-radius: 12px;
+  padding: 20px;
+  text-align: center;
+  border: 2px solid #6a4caf;
+  transition: all 0.3s ease;
+  position: relative;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+}
+.card:hover {
+  transform: scale(1.05);
+  border-color: #ffda52;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.6);
+}
+.card img { width: 80px; margin-bottom: 10px; filter: drop-shadow(0 2px 6px rgba(0,0,0,0.5)); }
+.card h2 { font-size: 18px; color: #ffffff; margin: 10px 0; min-height: 40px; display: flex; align-items: center; justify-content: center; font-weight: bold; }
+.old-price { color: #ff4d4d; text-decoration: line-through; font-size: 14px; }
+.price { margin: 10px 0; font-size: 20px; font-weight: bold; color: #ffda52; }
+.buy-btn { display: block; background: #ff4d4d; color: #fff; font-weight: bold; border-radius: 8px; padding: 10px; margin-top: 10px; text-decoration: none; transition: all 0.3s ease; cursor: pointer; }
+.buy-btn:hover { background: #ffda52; color: #000; }
+.info-btn { display: block; background: #6edc7a; color: #fff; font-weight: bold; border-radius: 8px; padding: 10px; margin-top: 10px; text-decoration: none; transition: all 0.3s ease; cursor: pointer; }
+.info-btn:hover { background: #5bcf6a; transform: scale(1.05); }
+
+/* Modal Buy */
+#buyModal { display: none; position: fixed; top:0; left:0; width:100%; height:100%; background: rgba(0,0,0,0.7); justify-content:center; align-items:center; z-index: 1000; }
+#buyModalContent { background: #2c1f47; padding: 40px; border-radius: 20px; max-width: 450px; width: 90%; text-align: center; position: relative; border: 2px solid #6a4caf; }
+#closeModal { position: absolute; top: 15px; right: 20px; font-size: 25px; cursor: pointer; }
+#buyModalContent p { font-size: 22px; margin-bottom: 25px; line-height: 1.5; color: #ffda52; font-weight: bold; }
+
+/* Modal Info */
+#infoModal { display: none; position: fixed; top:0; left:0; width:100%; height:100%; background: rgba(0,0,0,0.7); justify-content:center; align-items:center; z-index: 1000; }
+#infoModalContent { background: #2c1f47; padding: 30px; border-radius: 20px; max-width: 500px; width: 90%; position: relative; color: #fff; border: 2px solid #6a4caf; }
+#closeInfo { position: absolute; top: 15px; right: 20px; font-size: 25px; cursor: pointer; }
+#infoModalContent h2 { color: #ffda52; font-size: 28px; margin-bottom: 20px; text-align:center; }
+#infoModalContent h3 { text-align:left; margin-bottom: 10px; }
+#infoModalContent p { font-size: 18px; line-height: 1.5; margin-bottom: 15px; }
+
+/* Discord Button */
+.btn { background: #fcd05c; color: #000; font-weight: bold; padding: 14px 35px; border-radius: 30px; text-decoration: none; font-size: 20px; transition: all 0.3s ease; box-shadow: 0 0 0px transparent; display: inline-block; }
+.btn:hover { background: #ffbd59; box-shadow: 0 0 20px #ffbd59; transform: scale(1.08); }
+.btn:active { transform: scale(0.95); }
+</style>
+</head>
+<body>
+
+<!-- Navbar -->
+<div class="navbar">
+    <a href="index.html"><img src="logo.png" alt="ICIKI SMP Logo"></a>
+    <a href="https://discord.gg/JYS6N85TjE" target="_blank" class="discord-btn btn">DISCORD</a>
+</div>
+
+<div class="container">
+
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <a href="#"><img src="diamond.png" alt="Ranks">Ranks</a>
+        <a href="#"><img src="emerald.png" alt="Gems">Gems</a>
+    </div>
+
+    <!-- Content -->
+    <div class="content">
+        <div class="title-box">Ranks</div>
+        <div class="shop-grid">
+
+            <!-- Semua Rank dimulai dari Nova sampai Myrionz -->
+            <!-- Nova -->
+            <div class="card">
+                <img src="diamond.png">
+                <h2>「Nova」 Rank</h2>
+                <div class="old-price">15.000</div>
+                <div class="price">10.000</div>
+                <a href="#" class="buy-btn" onclick="openModal(event)">Buy</a>
+                <a href="#" class="info-btn" onclick="openInfo('Nova','TempFly 10 menit / hari (stack), /sit & /lay, Backpack 3 slot, RTP cepat.','/tempfly, /sit, /lay, /backpack, /rtp')">Info Rank</a>
+            </div>
+
+            <!-- Pro -->
+            <div class="card">
+                <img src="diamond.png">
+                <h2>「Pro」 Rank</h2>
+                <div class="old-price">30.000</div>
+                <div class="price">25.000</div>
+                <a href="#" class="buy-btn" onclick="openModal(event)">Buy</a>
+                <a href="#" class="info-btn" onclick="openInfo('Pro','TempFly 20 menit / hari, 3 Home, Backpack 6 slot, PTime pribadi.','/tempfly, /ptime, /sethome, /home, /backpack')">Info Rank</a>
+            </div>
+
+            <!-- Legacy -->
+            <div class="card">
+                <img src="diamond.png">
+                <h2>「Legacy」 Rank</h2>
+                <div class="old-price">80.000</div>
+                <div class="price">70.000</div>
+                <a href="#" class="buy-btn" onclick="openModal(event)">Buy</a>
+                <a href="#" class="info-btn" onclick="openInfo('Legacy','Fly 30 menit / hari, 4 Home, Backpack 9 slot, akses /enderchest.','/fly, /sethome, /home, /backpack, /enderchest')">Info Rank</a>
+            </div>
+
+            <!-- Elite -->
+            <div class="card">
+                <img src="diamond.png">
+                <h2>「Elite」 Rank</h2>
+                <div class="old-price">280.000</div>
+                <div class="price">250.000</div>
+                <a href="#" class="buy-btn" onclick="openModal(event)">Buy</a>
+                <a href="#" class="info-btn" onclick="openInfo('Elite','Fly 1 jam / hari, 5 Home, Backpack 12 slot, akses /hat & /feed, akses /anvil.','/fly, /sethome, /home, /backpack, /hat, /feed, /anvil')">Info Rank</a>
+            </div>
+
+            <!-- Celestia -->
+            <div class="card">
+                <img src="diamond.png">
+                <h2>「Celestia」 Rank</h2>
+                <div class="old-price">320.000</div>
+                <div class="price">290.000</div>
+                <a href="#" class="buy-btn" onclick="openModal(event)">Buy</a>
+                <a href="#" class="info-btn" onclick="openInfo('Celestia','Fly 2 jam / hari, 6 Home, Backpack 15 slot, akses /nick & /near.','/fly, /sethome, /home, /backpack, /nick, /near')">Info Rank</a>
+            </div>
+
+            <!-- Glory -->
+            <div class="card">
+                <img src="diamond.png">
+                <h2>「Glory」 Rank</h2>
+                <div class="old-price">350.000</div>
+                <div class="price">310.000</div>
+                <a href="#" class="buy-btn" onclick="openModal(event)">Buy</a>
+                <a href="#" class="info-btn" onclick="openInfo('Glory','Fly 3 jam / hari, 7 Home, Backpack 18 slot, akses /heal, /disposal, /craft.','/fly, /sethome, /home, /backpack, /heal, /disposal, /craft')">Info Rank</a>
+            </div>
+
+            <!-- Vanguard -->
+            <div class="card">
+                <img src="diamond.png">
+                <h2>「Vanguard」 Rank</h2>
+                <div class="old-price">520.000</div>
+                <div class="price">480.000</div>
+                <a href="#" class="buy-btn" onclick="openModal(event)">Buy</a>
+                <a href="#" class="info-btn" onclick="openInfo('Vanguard','Fly 4 jam / hari, 8 Home, Backpack 21 slot, akses /repair, kit harian Vanguard.','/fly, /sethome, /home, /backpack, /repair, /kit vanguard')">Info Rank</a>
+            </div>
+
+            <!-- Exalt -->
+            <div class="card">
+                <img src="diamond.png">
+                <h2>「Exalt」 Rank</h2>
+                <div class="old-price">700.000</div>
+                <div class="price">650.000</div>
+                <a href="#" class="buy-btn" onclick="openModal(event)">Buy</a>
+                <a href="#" class="info-btn" onclick="openInfo('Exalt','Fly 5 jam / hari, 9 Home, Backpack 24 slot, /repair all, kit Exalt harian.','/fly, /sethome, /home, /backpack, /repair all, /kit exalt')">Info Rank</a>
+            </div>
+
+            <!-- Mythic -->
+            <div class="card">
+                <img src="diamond.png">
+                <h2>「Mythic」 Rank</h2>
+                <div class="old-price">820.000</div>
+                <div class="price">770.000</div>
+                <a href="#" class="buy-btn" onclick="openModal(event)">Buy</a>
+                <a href="#" class="info-btn" onclick="openInfo('Mythic','Fly 6 jam / hari, 10 Home, Backpack 27 slot, akses /skull & /god 15 menit.','/fly, /sethome, /home, /backpack, /skull, /god')">Info Rank</a>
+            </div>
+
+            <!-- Immortal -->
+            <div class="card">
+                <img src="diamond.png">
+                <h2>「Immortal」 Rank</h2>
+                <div class="old-price">900.000</div>
+                <div class="price">850.000</div>
+                <a href="#" class="buy-btn" onclick="openModal(event)">Buy</a>
+                <a href="#" class="info-btn" onclick="openInfo('Immortal','Fly 7 jam / hari, 12 Home, Backpack 30 slot, /god toggle, /echest dari mana saja.','/fly, /sethome, /home, /backpack, /god, /enderchest')">Info Rank</a>
+            </div>
+
+            <!-- Shadow -->
+            <div class="card">
+                <img src="diamond.png">
+                <h2>「Shadow」 Rank</h2>
+                <div class="old-price">1.050.000</div>
+                <div class="price">960.000</div>
+                <a href="#" class="buy-btn" onclick="openModal(event)">Buy</a>
+                <a href="#" class="info-btn" onclick="openInfo('Shadow','Fly 8 jam / hari, 14 Home, Backpack 33 slot, akses /god & /nick, PTime selalu siang.','/fly, /sethome, /home, /backpack, /god, /nick, /ptime')">Info Rank</a>
+            </div>
+
+            <!-- Myrionz -->
+            <div class="card">
+                <img src="diamond.png">
+                <h2>「Myrionz」 Rank</h2>
+                <div class="old-price">1.100.000</div>
+                <div class="price">1.000.000</div>
+                <a href="#" class="buy-btn" onclick="openModal(event)">Buy</a>
+                <a href="#" class="info-btn" onclick="openInfo('Myrionz','Fly unlimited, 16 Home, Backpack 36 slot, /god tanpa durasi, /repair all, /feed & /heal CD pendek, akses semua utilitas.','/fly, /sethome, /home, /backpack, /god, /repair all, /feed, /heal, /craft, /anvil, /disposal')">Info Rank</a>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<!-- Modal Buy -->
+<div id="buyModal">
+    <div id="buyModalContent">
+        <span id="closeModal">✖</span>
+        <p>Siap untuk membeli? Yuk gabung Discord kami dan pilih rank favoritmu!</p>
+        <a href="https://discord.gg/JYS6N85TjE" target="_blank" class="btn">JOIN DISCORD</a>
+    </div>
+</div>
+
+<!-- Modal Info -->
+<div id="infoModal">
+    <div id="infoModalContent">
+        <span id="closeInfo">✖</span>
+        <h2 id="rankName">NAMA RANK</h2>
+        <h3>Benefits:</h3>
+        <p id="rankBenefits">Mendapatkan akses temp fly 10 menit daily (bertumpuk).</p>
+        <h3>Commands:</h3>
+        <p id="rankCommands">/tempfly - Temporary fly 10 menit daily</p>
+    </div>
+</div>
+
+<script>
+function openModal(e){
+    e.preventDefault();
+    document.getElementById('buyModal').style.display = 'flex';
+}
+document.getElementById('closeModal').onclick = function() {
+    document.getElementById('buyModal').style.display = 'none';
+}
+function openInfo(name, benefits, commands){
+    document.getElementById('rankName').innerText = name;
+    document.getElementById('rankBenefits').innerText = benefits;
+    document.getElementById('rankCommands').innerText = commands;
+    document.getElementById('infoModal').style.display = 'flex';
+}
+document.getElementById('closeInfo').onclick = function() {
+    document.getElementById('infoModal').style.display = 'none';
+}
+window.onclick = function(event) {
+    if(event.target.id === 'buyModal') { document.getElementById('buyModal').style.display = 'none'; }
+    if(event.target.id === 'infoModal') { document.getElementById('infoModal').style.display = 'none'; }
+}
+</script>
+
+<footer style="background-color:#4a1e78; text-align:center; padding:20px; font-family:Arial, sans-serif;">
+    <p style="color:#ccc; margin:5px 0;">© Iciki Smp, All rights reserved</p>
+    <div>
+      <a href="terms.html" style="color:#f7931e; text-decoration:none; margin:0 10px; font-weight:bold;">Terms of Service</a> |
+      <a href="how-to-buy.html" style="color:#f7931e; text-decoration:none; margin:0 10px; font-weight:bold;">How to Buy Rank</a> |
+      <a href="https://discord.gg/JYS6N85TjE" target="_blank" style="color:#f7931e; text-decoration:none; margin:0 10px; font-weight:bold;">Discord</a>
+    </div>
+  </footer>
+
+</body>
+</html>

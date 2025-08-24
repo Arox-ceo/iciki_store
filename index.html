@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ICIKI SMP | Store</title>
+  <link rel="icon" type="image/png" href="logo.png">  
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Arial', sans-serif;
+      background: linear-gradient(135deg, #0f1d40, #442063);
+      color: white;
+    }
+
+    /* Navbar */
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: #4a1e78;
+      padding: 15px 40px;
+    }
+    .navbar img {
+      height: 50px;
+      cursor: pointer;
+    }
+
+    /* Global Button Style */
+    .btn {
+      background: #fcd05c;
+      color: #000;
+      font-weight: bold;
+      padding: 14px 35px;
+      border-radius: 30px;
+      text-decoration: none;
+      font-size: 20px;
+      transition: all 0.3s ease;
+      box-shadow: 0 0 0px transparent;
+      display: inline-block;
+    }
+    .btn:hover {
+      background: #ffbd59;
+      box-shadow: 0 0 20px #ffbd59;
+      transform: scale(1.08);
+    }
+    .btn:active {
+      transform: scale(0.95);
+    }
+    /* Navbar button smaller */
+    .navbar .btn {
+      padding: 8px 20px;
+      font-size: 16px;
+      border-radius: 20px;
+    }
+
+    /* Hero */
+    .hero {
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 40px;
+      gap: 80px;
+    }
+    .hero-text {
+      max-width: 600px;
+    }
+    .hero-text h1 {
+      font-size: 70px;
+      margin: 0;
+      color: #ddd;
+    }
+    .hero-text p {
+      margin-top: 25px;
+      color: #aaa;
+      font-size: 20px;
+      line-height: 1.6;
+    }
+    .hero img {
+      max-width: 700px;
+    }
+
+    /* Shop Section */
+    .shop {
+      min-height: 110vh; 
+      display: flex;
+      flex-direction: column;
+      justify-content: center; 
+      align-items: center;
+      gap: 40px;
+      background: linear-gradient(135deg, #442063, #0f1d40);
+      padding: 100px 20px;
+    }
+
+    .shop-title {
+      font-size: 48px;
+      color: #fcd05c;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
+    .shop-items {
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      flex-wrap: wrap;
+    }
+
+    /* 🔹 Shop Card Style ala kotak rank */
+    .shop-card {
+      background: #2c1f47;
+      padding: 30px 20px;
+      border-radius: 20px;
+      text-align: center;
+      width: 260px;
+      border: 2px solid #6a4caf;
+      transition: all 0.3s ease;
+      text-decoration: none;
+      color: #fff;
+      display: block;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+    }
+    .shop-card:hover {
+      transform: scale(1.05);
+      border-color: #ffda52;
+      box-shadow: 0 6px 16px rgba(0,0,0,0.6);
+    }
+    .shop-card img {
+      width: 160px;
+      margin-bottom: 15px;
+      filter: drop-shadow(0 2px 6px rgba(0,0,0,0.5));
+    }
+    .shop-card h2 {
+      color: #ffda52;
+      margin: 10px 0;
+      font-weight: bold;
+    }
+    .shop-card p {
+      color: #ccc;
+      font-size: 16px;
+    }
+
+    /* Info Boxes */
+    .info-boxes {
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      flex-wrap: wrap;
+      margin-bottom: 40px;
+    }
+    .info-card {
+      background: #2c1f47;
+      padding: 30px 40px;
+      border-radius: 20px;
+      text-align: center;
+      border: 2px solid #6a4caf;
+      transition: all 0.3s ease;
+      color: white;
+      min-width: 200px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+    }
+    .info-card:hover {
+      transform: scale(1.05);
+      border-color: #ffda52;
+      box-shadow: 0 6px 16px rgba(0,0,0,0.6);
+    }
+    .info-card h2 {
+      color: #ffda52;
+      margin-bottom: 10px;
+    }
+    .info-card p {
+      font-size: 22px;
+      color: #ddd;
+      font-weight: bold;
+    }
+
+    /* Responsive */
+    @media (max-width: 900px) {
+      .hero {
+        flex-direction: column;
+        text-align: center;
+      }
+      .hero img {
+        margin-top: 40px;
+        width: 80%;
+      }
+      .shop-items {
+        flex-direction: column;
+        align-items: center;
+      }
+      .info-boxes {
+        flex-direction: column;
+        align-items: center;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <div class="navbar">
+    <a href="index.html"><img src="logo.png" alt="ICIKI SMP Logo"></a>
+    <a href="https://discord.gg/JYS6N85TjE" class="btn" target="_blank">DISCORD</a>
+  </div>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="hero-text">
+      <h1>Discover the <br> Ultimate</h1>
+      <p>
+        Welcome to ICIKI SMP store, where you can <br>
+        enhance your gaming journey by purchasing <br>
+        exclusive ranks and in-game credits.
+      </p>
+      <a href="#shop" class="btn" id="buyBtn">BUY NOW</a>
+    </div>
+    <img src="hero.png" alt="Minecraft Steve">
+  </section>
+
+  <!-- Shop Section -->
+  <section id="shop" class="shop">
+
+    <!-- Info Boxes -->
+    <div class="info-boxes">
+      <div class="info-card">
+        <h2>👥 Members</h2>
+        <p>150++</p>
+      </div>
+      <div class="info-card">
+        <h2>🟢 Online</h2>
+        <p>24/7</p>
+      </div>
+      <div class="info-card">
+        <h2>🌍 Servers</h2>
+        <p>18 Worlds</p>
+      </div>
+    </div>
+
+    <h1 class="shop-title">Our Products</h1>
+    <div class="shop-items">
+      <a href="shop.html" class="shop-card">
+        <img src="diamond.png" alt="Ranks">
+        <h2>Ranks</h2>
+        <p>Start from Rp.10.000</p>
+      </a>
+
+      <a href="shop.html" class="shop-card">
+        <img src="emerald.png" alt="Gems">
+        <h2>Gems</h2>
+        <p>Start from Rp.1.000</p>
+      </a>
+    </div>
+  </section>
+
+  <!-- Smooth Scroll Script -->
+  <script>
+    function smoothScroll(target, duration, offset = -50) {
+      const targetEl = document.querySelector(target);
+      const targetPosition = targetEl.getBoundingClientRect().top + window.pageYOffset + offset;
+      const startPosition = window.pageYOffset;
+      const distance = targetPosition - startPosition;
+      let startTime = null;
+
+      function animation(currentTime) {
+        if (startTime === null) startTime = currentTime;
+        const timeElapsed = currentTime - startTime;
+        const run = ease(timeElapsed, startPosition, distance, duration);
+        window.scrollTo(0, run);
+        if (timeElapsed < duration) requestAnimationFrame(animation);
+      }
+
+      function ease(t, b, c, d) {
+        t /= d / 2;
+        if (t < 1) return c / 2 * t * t + b;
+        t--;
+        return -c / 2 * (t * (t - 2) - 1) + b;
+      }
+
+      requestAnimationFrame(animation);
+    }
+
+    document.getElementById("buyBtn").addEventListener("click", function(e) {
+      e.preventDefault();
+      smoothScroll("#shop", 2500, +250);
+    });
+  </script>
+
+  <footer style="background-color:#4a1e78; text-align:center; padding:20px; font-family:Arial, sans-serif;">
+    <p style="color:#ccc; margin:5px 0;">© Iciki Smp, All rights reserved</p>
+    <div>
+      <a href="terms.html" style="color:#f7931e; text-decoration:none; margin:0 10px; font-weight:bold;">Terms of Service</a> |
+      <a href="how-to-buy.html" style="color:#f7931e; text-decoration:none; margin:0 10px; font-weight:bold;">How to Buy Rank</a> |
+      <a href="https://discord.gg/JYS6N85TjE" target="_blank" style="color:#f7931e; text-decoration:none; margin:0 10px; font-weight:bold;">Discord</a>
+    </div>
+  </footer>
+
+</body>
+</html>
