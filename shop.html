@@ -143,126 +143,153 @@ body {
         <div class="title-box">Ranks</div>
         <div class="shop-grid">
 
-            <!-- Semua Rank dimulai dari Nova sampai Myrionz -->
-            <!-- Nova -->
-            <div class="card">
-                <img src="diamond.png">
-                <h2>「Nova」 Rank</h2>
-                <div class="old-price">15.000</div>
-                <div class="price">10.000</div>
-                <a href="#" class="buy-btn" onclick="openModal(event)">Buy</a>
-                <a href="#" class="info-btn" onclick="openInfo('Nova','TempFly 10 menit / hari (stack), /sit & /lay, Backpack 3 slot, RTP cepat.','/tempfly, /sit, /lay, /backpack, /rtp')">Info Rank</a>
-            </div>
+<!-- ========================== RANK CARDS ========================== -->
 
-            <!-- Pro -->
-            <div class="card">
-                <img src="diamond.png">
-                <h2>「Pro」 Rank</h2>
-                <div class="old-price">30.000</div>
-                <div class="price">25.000</div>
-                <a href="#" class="buy-btn" onclick="openModal(event)">Buy</a>
-                <a href="#" class="info-btn" onclick="openInfo('Pro','TempFly 20 menit / hari, 3 Home, Backpack 6 slot, PTime pribadi.','/tempfly, /ptime, /sethome, /home, /backpack')">Info Rank</a>
-            </div>
+<!-- Nova -->
+<div class="card">
+    <img src="diamond.png" alt="Nova">
+    <h2>「Nova」 Rank</h2>
+    <div class="old-price">15.000</div>
+    <div class="price">10.000</div>
+    <a href="#" class="buy-btn" onclick="openModal(event)">Buy</a>
+    <a href="#" class="info-btn" onclick="openInfo('Nova',
+        'Mendapatkan akses dasar rank, Mendapatkan prioritas urutan weight ke-20 di tab list player, Mendapatkan claim blocks sebesar 2k, Mendapatkan akses kits Nova, Mendapatkan akses sethome dengan jumlah 1',
+        '/sethome [1], /hat, /list')">Info Rank</a>
+</div>
 
-            <!-- Legacy -->
-            <div class="card">
-                <img src="diamond.png">
-                <h2>「Legacy」 Rank</h2>
-                <div class="old-price">80.000</div>
-                <div class="price">70.000</div>
-                <a href="#" class="buy-btn" onclick="openModal(event)">Buy</a>
-                <a href="#" class="info-btn" onclick="openInfo('Legacy','Fly 30 menit / hari, 4 Home, Backpack 9 slot, akses /enderchest.','/fly, /sethome, /home, /backpack, /enderchest')">Info Rank</a>
-            </div>
+<!-- Pro -->
+<div class="card">
+    <img src="diamond.png" alt="Pro">
+    <h2>「Pro」 Rank</h2>
+    <div class="old-price">30.000</div>
+    <div class="price">25.000</div>
+    <a href="#" class="buy-btn" onclick="openModal(event)">Buy</a>
+    <a href="#" class="info-btn" onclick="openInfo('Pro',
+        'Mendapatkan seluruh akses rank Nova, Mendapatkan akses fly (di server tertentu), Mendapatkan claim blocks sebesar 4k, Mendapatkan akses kits Pro, Mendapatkan akses PlayerVaults dengan jumlah 1',
+        '/fly, /pv 1')">Info Rank</a>
+</div>
 
-            <!-- Elite -->
-            <div class="card">
-                <img src="diamond.png">
-                <h2>「Elite」 Rank</h2>
-                <div class="old-price">280.000</div>
-                <div class="price">250.000</div>
-                <a href="#" class="buy-btn" onclick="openModal(event)">Buy</a>
-                <a href="#" class="info-btn" onclick="openInfo('Elite','Fly 1 jam / hari, 5 Home, Backpack 12 slot, akses /hat & /feed, akses /anvil.','/fly, /sethome, /home, /backpack, /hat, /feed, /anvil')">Info Rank</a>
-            </div>
+<!-- Legacy -->
+<div class="card">
+    <img src="diamond.png" alt="Legacy">
+    <h2>「Legacy」 Rank</h2>
+    <div class="old-price">80.000</div>
+    <div class="price">70.000</div>
+    <a href="#" class="buy-btn" onclick="openModal(event)">Buy</a>
+    <a href="#" class="info-btn" onclick="openInfo('Legacy',
+        'Mendapatkan seluruh akses rank Pro, Mendapatkan prioritas urutan weight ke-15 di tab list player, Mendapatkan claim blocks sebesar 8k, Mendapatkan akses kits Legacy, Mendapatkan akses daily reward, Mendapatkan akses PlayerVaults dengan jumlah 1, Mendapatkan akses sethome dengan jumlah 3, Mendapatkan akses craft table virtual',
+        '/suicide, /craft')">Info Rank</a>
+</div>
 
-            <!-- Celestia -->
-            <div class="card">
-                <img src="diamond.png">
-                <h2>「Celestia」 Rank</h2>
-                <div class="old-price">320.000</div>
-                <div class="price">290.000</div>
-                <a href="#" class="buy-btn" onclick="openModal(event)">Buy</a>
-                <a href="#" class="info-btn" onclick="openInfo('Celestia','Fly 2 jam / hari, 6 Home, Backpack 15 slot, akses /nick & /near.','/fly, /sethome, /home, /backpack, /nick, /near')">Info Rank</a>
-            </div>
+<!-- Elite -->
+<div class="card">
+    <img src="diamond.png" alt="Elite">
+    <h2>「Elite」 Rank</h2>
+    <div class="old-price">280.000</div>
+    <div class="price">250.000</div>
+    <a href="#" class="buy-btn" onclick="openModal(event)">Buy</a>
+    <a href="#" class="info-btn" onclick="openInfo('Elite',
+        'Mendapatkan seluruh akses rank Legacy, Mendapatkan prioritas urutan weight ke-12 di tab list player, Mendapatkan claim blocks sebesar 12k, Mendapatkan akses kits Elite, Mendapatkan akses PlayerVaults dengan jumlah 2, Mendapatkan akses sethome dengan jumlah 4, Mendapatkan akses feed (instant kenyang)',
+        '/feed, /pv 2')">Info Rank</a>
+</div>
 
-            <!-- Glory -->
-            <div class="card">
-                <img src="diamond.png">
-                <h2>「Glory」 Rank</h2>
-                <div class="old-price">350.000</div>
-                <div class="price">310.000</div>
-                <a href="#" class="buy-btn" onclick="openModal(event)">Buy</a>
-                <a href="#" class="info-btn" onclick="openInfo('Glory','Fly 3 jam / hari, 7 Home, Backpack 18 slot, akses /heal, /disposal, /craft.','/fly, /sethome, /home, /backpack, /heal, /disposal, /craft')">Info Rank</a>
-            </div>
+<!-- Celestia -->
+<div class="card">
+    <img src="diamond.png" alt="Celestia">
+    <h2>「Celestia」 Rank</h2>
+    <div class="old-price">320.000</div>
+    <div class="price">290.000</div>
+    <a href="#" class="buy-btn" onclick="openModal(event)">Buy</a>
+    <a href="#" class="info-btn" onclick="openInfo('Celestia',
+        'Mendapatkan seluruh akses rank Elite, Mendapatkan prioritas urutan weight ke-10 di tab list player, Mendapatkan claim blocks sebesar 20k, Mendapatkan akses kits Celestia, Mendapatkan akses PlayerVaults dengan jumlah 3, Mendapatkan akses sethome dengan jumlah 6, Mendapatkan akses anvil dan enderchest virtual, Mendapatkan akses pembuatan warps dengan jumlah 5, Mendapatkan akses nick, Mendapatkan akses backpack kecil',
+        '/ec, /anvil, /nick, /backpack')">Info Rank</a>
+</div>
 
-            <!-- Vanguard -->
-            <div class="card">
-                <img src="diamond.png">
-                <h2>「Vanguard」 Rank</h2>
-                <div class="old-price">520.000</div>
-                <div class="price">480.000</div>
-                <a href="#" class="buy-btn" onclick="openModal(event)">Buy</a>
-                <a href="#" class="info-btn" onclick="openInfo('Vanguard','Fly 4 jam / hari, 8 Home, Backpack 21 slot, akses /repair, kit harian Vanguard.','/fly, /sethome, /home, /backpack, /repair, /kit vanguard')">Info Rank</a>
-            </div>
+<!-- Glory -->
+<div class="card">
+    <img src="diamond.png" alt="Glory">
+    <h2>「Glory」 Rank</h2>
+    <div class="old-price">350.000</div>
+    <div class="price">310.000</div>
+    <a href="#" class="buy-btn" onclick="openModal(event)">Buy</a>
+    <a href="#" class="info-btn" onclick="openInfo('Glory',
+        'Mendapatkan seluruh akses rank Celestia, Mendapatkan prioritas urutan weight ke-8 di tab list player, Mendapatkan claim blocks sebesar 30k, Mendapatkan akses kits Glory, Mendapatkan akses PlayerVaults dengan jumlah 4, Mendapatkan akses sethome dengan jumlah 8, Mendapatkan akses disguise (ubah bentuk jadi mob), Mendapatkan akses backpack medium',
+        '/disguise [mob], /undisguise, /backpack')">Info Rank</a>
+</div>
 
-            <!-- Exalt -->
-            <div class="card">
-                <img src="diamond.png">
-                <h2>「Exalt」 Rank</h2>
-                <div class="old-price">700.000</div>
-                <div class="price">650.000</div>
-                <a href="#" class="buy-btn" onclick="openModal(event)">Buy</a>
-                <a href="#" class="info-btn" onclick="openInfo('Exalt','Fly 5 jam / hari, 9 Home, Backpack 24 slot, /repair all, kit Exalt harian.','/fly, /sethome, /home, /backpack, /repair all, /kit exalt')">Info Rank</a>
-            </div>
+<!-- Vanguard -->
+<div class="card">
+    <img src="diamond.png" alt="Vanguard">
+    <h2>「Vanguard」 Rank</h2>
+    <div class="old-price">520.000</div>
+    <div class="price">480.000</div>
+    <a href="#" class="buy-btn" onclick="openModal(event)">Buy</a>
+    <a href="#" class="info-btn" onclick="openInfo('Vanguard',
+        'Mendapatkan seluruh akses rank Glory, Mendapatkan prioritas urutan weight ke-6 di tab list player, Mendapatkan claim blocks sebesar 40k, Mendapatkan akses kits Vanguard, Mendapatkan akses PlayerVaults dengan jumlah 5, Mendapatkan akses sethome dengan jumlah 10, Mendapatkan akses heal (instant full HP), Mendapatkan akses backpack besar',
+        '/heal, /backpack')">Info Rank</a>
+</div>
 
-            <!-- Mythic -->
-            <div class="card">
-                <img src="diamond.png">
-                <h2>「Mythic」 Rank</h2>
-                <div class="old-price">820.000</div>
-                <div class="price">770.000</div>
-                <a href="#" class="buy-btn" onclick="openModal(event)">Buy</a>
-                <a href="#" class="info-btn" onclick="openInfo('Mythic','Fly 6 jam / hari, 10 Home, Backpack 27 slot, akses /skull & /god 15 menit.','/fly, /sethome, /home, /backpack, /skull, /god')">Info Rank</a>
-            </div>
+<!-- Exalt -->
+<div class="card">
+    <img src="diamond.png" alt="Exalt">
+    <h2>「Exalt」 Rank</h2>
+    <div class="old-price">700.000</div>
+    <div class="price">650.000</div>
+    <a href="#" class="buy-btn" onclick="openModal(event)">Buy</a>
+    <a href="#" class="info-btn" onclick="openInfo('Exalt',
+        'Mendapatkan seluruh akses rank Vanguard, Mendapatkan prioritas urutan weight ke-5 di tab list player, Mendapatkan claim blocks sebesar 50k, Mendapatkan akses kits Exalt, Mendapatkan akses PlayerVaults dengan jumlah 6, Mendapatkan akses sethome dengan jumlah 12, Mendapatkan akses warna dan format chat',
+        '/chatcolor, /format')">Info Rank</a>
+</div>
 
-            <!-- Immortal -->
-            <div class="card">
-                <img src="diamond.png">
-                <h2>「Immortal」 Rank</h2>
-                <div class="old-price">900.000</div>
-                <div class="price">850.000</div>
-                <a href="#" class="buy-btn" onclick="openModal(event)">Buy</a>
-                <a href="#" class="info-btn" onclick="openInfo('Immortal','Fly 7 jam / hari, 12 Home, Backpack 30 slot, /god toggle, /echest dari mana saja.','/fly, /sethome, /home, /backpack, /god, /enderchest')">Info Rank</a>
-            </div>
+<!-- Mythic -->
+<div class="card">
+    <img src="diamond.png" alt="Mythic">
+    <h2>「Mythic」 Rank</h2>
+    <div class="old-price">820.000</div>
+    <div class="price">770.000</div>
+    <a href="#" class="buy-btn" onclick="openModal(event)">Buy</a>
+    <a href="#" class="info-btn" onclick="openInfo('Mythic',
+        'Mendapatkan seluruh akses rank Exalt, Mendapatkan prioritas urutan weight ke-4 di tab list player, Mendapatkan claim blocks sebesar 65k, Mendapatkan akses kits Mythic, Mendapatkan akses PlayerVaults dengan jumlah 8, Mendapatkan akses sethome dengan jumlah 15, Mendapatkan akses untuk spawn entity tertentu',
+        '/summon [entity]')">Info Rank</a>
+</div>
 
-            <!-- Shadow -->
-            <div class="card">
-                <img src="diamond.png">
-                <h2>「Shadow」 Rank</h2>
-                <div class="old-price">1.050.000</div>
-                <div class="price">960.000</div>
-                <a href="#" class="buy-btn" onclick="openModal(event)">Buy</a>
-                <a href="#" class="info-btn" onclick="openInfo('Shadow','Fly 8 jam / hari, 14 Home, Backpack 33 slot, akses /god & /nick, PTime selalu siang.','/fly, /sethome, /home, /backpack, /god, /nick, /ptime')">Info Rank</a>
-            </div>
+<!-- Immortal -->
+<div class="card">
+    <img src="diamond.png" alt="Immortal">
+    <h2>「Immortal」 Rank</h2>
+    <div class="old-price">900.000</div>
+    <div class="price">850.000</div>
+    <a href="#" class="buy-btn" onclick="openModal(event)">Buy</a>
+    <a href="#" class="info-btn" onclick="openInfo('Immortal',
+        'Mendapatkan seluruh akses rank Mythic, Mendapatkan prioritas urutan weight ke-3 di tab list player, Mendapatkan claim blocks sebesar 80k, Mendapatkan akses kits Immortal, Mendapatkan akses PlayerVaults dengan jumlah 10, Mendapatkan akses sethome dengan jumlah 20, Mendapatkan akses fly permanen di seluruh subserver survival, Mendapatkan akses disguise premium',
+        '/fly, /disguise [advanced]')">Info Rank</a>
+</div>
 
-            <!-- Myrionz -->
-            <div class="card">
-                <img src="diamond.png">
-                <h2>「Myrionz」 Rank</h2>
-                <div class="old-price">1.100.000</div>
-                <div class="price">1.000.000</div>
-                <a href="#" class="buy-btn" onclick="openModal(event)">Buy</a>
-                <a href="#" class="info-btn" onclick="openInfo('Myrionz','Fly unlimited, 16 Home, Backpack 36 slot, /god tanpa durasi, /repair all, /feed & /heal CD pendek, akses semua utilitas.','/fly, /sethome, /home, /backpack, /god, /repair all, /feed, /heal, /craft, /anvil, /disposal')">Info Rank</a>
-            </div>
+<!-- Shadow -->
+<div class="card">
+    <img src="diamond.png" alt="Shadow">
+    <h2>「Shadow」 Rank</h2>
+    <div class="old-price">1.050.000</div>
+    <div class="price">960.000</div>
+    <a href="#" class="buy-btn" onclick="openModal(event)">Buy</a>
+    <a href="#" class="info-btn" onclick="openInfo('Shadow',
+        'Mendapatkan seluruh akses rank Immortal, Mendapatkan prioritas urutan weight ke-2 di tab list player, Mendapatkan claim blocks sebesar 100k, Mendapatkan akses kits Shadow, Mendapatkan akses PlayerVaults dengan jumlah 12, Mendapatkan akses sethome dengan jumlah 25, Mendapatkan akses vanish (menghilang dari player lain)',
+        '/vanish, /reappear')">Info Rank</a>
+</div>
+
+<!-- Myrionz -->
+<div class="card">
+    <img src="diamond.png" alt="Myrionz">
+    <h2>「Myrionz」 Rank</h2>
+    <div class="old-price">1.100.000</div>
+    <div class="price">1.000.000</div>
+    <a href="#" class="buy-btn" onclick="openModal(event)">Buy</a>
+    <a href="#" class="info-btn" onclick="openInfo('Myrionz',
+        'Mendapatkan seluruh akses rank Shadow, Prioritas weight #1 di tab list player, Claim blocks 150k, Akses kits Myrionz (OP & eksklusif), Akses PlayerVaults (15 PV), Akses sethome hingga 30, Akses semua virtual utilities (craft, anvil, enderchest, backpack max, disposal), Akses full disguise, vanish, nick, fly unlimited, Daily & Monthly Rewards, Repair Token Gratis bulanan, Private warp, Title Prefix eksklusif, Chat color & format lengkap, Akses hologram pribadi, Particle effect eksklusif, Hat 3D, AFK bypass, Full pets, Mount eksklusif, Music system',
+        '/fly, /god, /vanish, /nick, /disguise, /pv 1-15, /sethome, /home, /ec, /backpack, /craft, /anvil, /disposal, /heal, /feed, /repair, /repair all, /hat, /ptime, /pweather, /tptoggle, /warp, /back, /near, /ignore, /msgcolor, /afk, /pets, /mounts, /music')">Info Rank</a>
+</div>
+
+
 
         </div>
     </div>
@@ -323,4 +350,3 @@ window.onclick = function(event) {
 
 </body>
 </html>
-
