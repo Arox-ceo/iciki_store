@@ -108,13 +108,83 @@ body {
 #closeModal { position: absolute; top: 15px; right: 20px; font-size: 25px; cursor: pointer; }
 #buyModalContent p { font-size: 22px; margin-bottom: 25px; line-height: 1.5; color: #ffda52; font-weight: bold; }
 
+
 /* Modal Info */
-#infoModal { display: none; position: fixed; top:0; left:0; width:100%; height:100%; background: rgba(0,0,0,0.7); justify-content:center; align-items:center; z-index: 1000; }
-#infoModalContent { background: #2c1f47; padding: 30px; border-radius: 20px; max-width: 500px; width: 90%; position: relative; color: #fff; border: 2px solid #6a4caf; }
-#closeInfo { position: absolute; top: 15px; right: 20px; font-size: 25px; cursor: pointer; }
-#infoModalContent h2 { color: #ffda52; font-size: 28px; margin-bottom: 20px; text-align:center; }
-#infoModalContent h3 { text-align:left; margin-bottom: 10px; }
-#infoModalContent p { font-size: 18px; line-height: 1.5; margin-bottom: 15px; }
+#infoModal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.7);
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+#infoModalContent {
+  background: #2c1f47;
+  padding: 30px;
+  border-radius: 20px;
+  max-width: 500px;
+  width: 90%;
+  position: relative;
+  color: #fff;
+  border: 2px solid #6a4caf;
+
+  /* Fix ukuran + scroll */
+  max-height: 80vh;     /* tinggi maksimal 80% layar */
+  min-height: 200px;    /* biar ukuran konsisten */
+  overflow-y: auto;     /* scroll kalau kepanjangan */
+}
+
+#closeInfo {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  font-size: 25px;
+  cursor: pointer;
+}
+
+#infoModalContent h2 {
+  color: #ffda52;
+  font-size: 28px;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+#infoModalContent h3 {
+  text-align: left;
+  margin-bottom: 10px;
+}
+
+#infoModalContent p {
+  font-size: 18px;
+  line-height: 1.5;
+  margin-bottom: 15px;
+}
+
+
+
+/* Commands Box */
+.commands-box {
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 10px;
+    padding: 12px;
+    font-family: "Courier New", monospace;
+    font-size: 16px;
+    color: #ffda52;
+    white-space: pre-line;
+    margin-bottom: 15px;
+
+    /* Scroll setup */
+    max-height: 200px;   /* tinggi maksimal kotak */
+    overflow-y: auto;    /* kalau isinya lebih panjang, muncul scroll */
+}
+
+
 
 /* Discord Button */
 .btn { background: #fcd05c; color: #000; font-weight: bold; padding: 14px 35px; border-radius: 30px; text-decoration: none; font-size: 20px; transition: all 0.3s ease; box-shadow: 0 0 0px transparent; display: inline-block; }
@@ -153,9 +223,10 @@ body {
     <div class="price">10.000</div>
     <a href="#" class="buy-btn" onclick="openModal(event)">Buy</a>
     <a href="#" class="info-btn" onclick="openInfo('Nova',
-        'Mendapatkan akses dasar rank, Mendapatkan prioritas urutan weight ke-20 di tab list player, Mendapatkan claim blocks sebesar 2k, Mendapatkan akses kits Nova, Mendapatkan akses sethome dengan jumlah 1',
-        '/sethome [1], /hat, /list')">Info Rank</a>
+        'Mendapatkan akses Inv fly<br>Mendapatkan seluruh akses rank Member',
+        '/fly')">Info Rank</a>
 </div>
+
 
 <!-- Pro -->
 <div class="card">
@@ -171,124 +242,504 @@ body {
 
 <!-- Legacy -->
 <div class="card">
-    <img src="diamond.png" alt="Legacy">
-    <h2>「Legacy」 Rank</h2>
-    <div class="old-price">80.000</div>
-    <div class="price">70.000</div>
-    <a href="#" class="buy-btn" onclick="openModal(event)">Buy</a>
-    <a href="#" class="info-btn" onclick="openInfo('Legacy',
-        'Mendapatkan seluruh akses rank Pro, Mendapatkan prioritas urutan weight ke-15 di tab list player, Mendapatkan claim blocks sebesar 8k, Mendapatkan akses kits Legacy, Mendapatkan akses daily reward, Mendapatkan akses PlayerVaults dengan jumlah 1, Mendapatkan akses sethome dengan jumlah 3, Mendapatkan akses craft table virtual',
-        '/suicide, /craft')">Info Rank</a>
+  <img src="diamond.png" alt="Legacy">
+  <h2>「Legacy」 Rank</h2>
+  <div class="old-price">80.000</div>
+  <div class="price">70.000</div>
+  <a href="#" class="buy-btn" onclick="openModal(event)">Buy</a>
+  <a href="#" class="info-btn" onclick="openInfo('Legacy',
+      'Mendapatkan claim blocks sebesar 12k.<br>Mendapatkan akses kits Legacy.<br>Mendapatkan akses set home dengan jumlah 4.<br>Mendapatkan akses daily reward Legacy.<br>Mendapatkan akses pembuatan warps dengan jumlah 3.<br>Mendapatkan akses PlayerVaults dengan jumlah 2.<br>Mendapatkan akses craft table virtual.<br>Mendapatkan akses melakukan spin player movement.<br>Mendapatkan akses stone cutter virtual.<br>Mendapatkan akses smithing table virtual.<br>Mendapatkan akses merubah cuaca world.<br>Mendapatkan akses mengubah waktu world.<br>Mendapatkan akses loom virtual.<br>Mendapatkan akses grindstone virtual.<br>Mendapatkan akses cartography table virtual.',
+      '/Mendapatkan akses /kit - Legacy Kits.<br>/Mendapatkan akses /reward - Daily Reward Legacy.<br>/Mendapatkan akses /sethome - dengan jumlah 3.<br>/Mendapatkan akses /pw create - dengan jumlah 3.<br>/Mendapatkan akses /pv 1-2 - penyimpangan seluas Large Chest.<br>/Mendapatkan akses /craft - membuka virtual crafting table dimanapun dan kapanpun.<br>/Mendapatkan akses /spin - movement player berputar seperti angin topan.<br>/Mendapatkan akses /stonecutter - membuka virtual stone cutter dimanapun dan kapanpun.<br>/Mendapatkan akses /smithingtable - membuka virtual smithing table dimanapun dan kapanpun.<br>/Mendapatkan akses /pweather - mengubah cuaca world.<br>/Mendapatkan akses /ptime - mengubah waktu world.<br>/Mendapatkan akses /loom - membuka loom dimanapun dan kapanpun.<br>/Mendapatkan akses /grindstone - membuka virtual grindstone dimanapun dan kapanpun.<br>/Mendapatkan akses /cartography - membuka virtual cartography dimanapun dan kapanpun.')">Info Rank</a>
 </div>
+
 
 <!-- Elite -->
 <div class="card">
-    <img src="diamond.png" alt="Elite">
-    <h2>「Elite」 Rank</h2>
-    <div class="old-price">280.000</div>
-    <div class="price">250.000</div>
-    <a href="#" class="buy-btn" onclick="openModal(event)">Buy</a>
-    <a href="#" class="info-btn" onclick="openInfo('Elite',
-        'Mendapatkan seluruh akses rank Legacy, Mendapatkan prioritas urutan weight ke-12 di tab list player, Mendapatkan claim blocks sebesar 12k, Mendapatkan akses kits Elite, Mendapatkan akses PlayerVaults dengan jumlah 2, Mendapatkan akses sethome dengan jumlah 4, Mendapatkan akses feed (instant kenyang)',
-        '/feed, /pv 2')">Info Rank</a>
+  <img src="diamond.png" alt="Elite">
+  <h2>「Elite」 Rank</h2>
+  <div class="old-price">280.000</div>
+  <div class="price">250.000</div>
+  <a href="#" class="buy-btn" onclick="openModal(event)">Buy</a>
+  <a href="#" class="info-btn" onclick="openInfo('Elite',
+      'Mendapatkan claim blocks sebesar 24k.<br>Mendapatkan akses kits Elite.<br>Mendapatkan akses set home dengan jumlah 8.<br>Mendapatkan akses daily reward Elite.<br>Mendapatkan akses pembuatan warps dengan jumlah 7.<br>Mendapatkan akses PlayerVaults dengan jumlah 6.<br>Mendapatkan akses craft table virtual.<br>Mendapatkan akses melakukan spin player movement.<br>Mendapatkan akses stone cutter virtual.<br>Mendapatkan akses smithing table virtual.<br>Mendapatkan akses merubah cuaca world.<br>Mendapatkan akses mengubah waktu world.<br>Mendapatkan akses loom virtual.<br>Mendapatkan akses grindstone virtual.<br>Mendapatkan akses cartography table virtual.<br>Mendapatkan akses compass untuk melihat arah.<br>Mendapatkan akses disposal untuk membuat item yang sudah tidak digunakan.<br>Mendapatkan akses recipe untuk melihat bahan pembuatan item.<br>Mendapatkan akses feed untuk memenuhi kembali hunger bar.<br>Mendapatkan akses fix untuk memperbaiki durability tools.<br>Mendapatkan akses eheal untuk memenuhi kembali health bar.',
+      '/Mendapatkan akses /kit - Elite Kits.<br>/Mendapatkan akses /reward - Daily Reward Elite.<br>/Mendapatkan akses /sethome - dengan jumlah 6.<br>/Mendapatkan akses /pw create - dengan jumlah 5.<br>/Mendapatkan akses /pv 1-5 - penyimpangan seluas Large Chest.<br>/Mendapatkan akses /craft - membuka virtual crafting table dimanapun dan kapanpun.<br>/Mendapatkan akses /spin - movement player berputar seperti angin topan.<br>/Mendapatkan akses /stonecutter - membuka virtual stone cutter dimanapun dan kapanpun.<br>/Mendapatkan akses /smithingtable - membuka virtual smithing table dimanapun dan kapanpun.<br>/Mendapatkan akses /pweather - mengubah cuaca world.<br>/Mendapatkan akses /ptime - mengubah waktu world.<br>/Mendapatkan akses /loom - membuka loom dimanapun dan kapanpun.<br>/Mendapatkan akses /grindstone - membuka virtual grindstone dimanapun dan kapanpun.<br>/Mendapatkan akses /cartography - membuka virtual cartography dimanapun dan kapanpun.<br>/Mendapatkan akses /compass - memberitahu arah player.<br>/Mendapatkan akses /disposal - membuka virtual untuk membuang item.<br>/Mendapatkan akses /recipe - untuk membuka recipe dari sebuah item.<br>/Mendapatkan akses /feed - untuk memenuhi kembali hunger bar.<br>/Mendapatkan akses /fix - untuk memperbaiki durabilty item yang dipegang.<br>/Mendapatkan akses /eheal - untuk memenuhi kembali health bar.<br>/Mendapatkan akses /crawl - movement player merangkak.')">Info Rank</a>
 </div>
+
 
 <!-- Celestia -->
 <div class="card">
-    <img src="diamond.png" alt="Celestia">
-    <h2>「Celestia」 Rank</h2>
-    <div class="old-price">320.000</div>
-    <div class="price">290.000</div>
-    <a href="#" class="buy-btn" onclick="openModal(event)">Buy</a>
-    <a href="#" class="info-btn" onclick="openInfo('Celestia',
-        'Mendapatkan seluruh akses rank Elite, Mendapatkan prioritas urutan weight ke-10 di tab list player, Mendapatkan claim blocks sebesar 20k, Mendapatkan akses kits Celestia, Mendapatkan akses PlayerVaults dengan jumlah 3, Mendapatkan akses sethome dengan jumlah 6, Mendapatkan akses anvil dan enderchest virtual, Mendapatkan akses pembuatan warps dengan jumlah 5, Mendapatkan akses nick, Mendapatkan akses backpack kecil',
-        '/ec, /anvil, /nick, /backpack')">Info Rank</a>
+  <img src="diamond.png" alt="Celestia">
+  <h2>「Celestia」 Rank</h2>
+  <div class="old-price">320.000</div>
+  <div class="price">290.000</div>
+  <a href="#" class="buy-btn" onclick="openModal(event)">Buy</a>
+  <a href="#" class="info-btn" onclick="openInfo('Celestia',
+      'Mendapatkan seluruh akses rank Elite.<br>\
+      Mendapatkan claim blocks sebesar 24k.<br>\
+      Mendapatkan akses kits Celestia.<br>\
+      Mendapatkan akses set home dengan jumlah 8.<br>\
+      Mendapatkan akses daily reward Celestia.<br>\
+      Mendapatkan akses pembuatan warps dengan jumlah 7.<br>\
+      Mendapatkan akses PlayerVaults dengan jumlah 6.<br>\
+      Mendapatkan akses craft table virtual.<br>\
+      Mendapatkan akses melakukan spin player movement.<br>\
+      Mendapatkan akses stone cutter virtual.<br>\
+      Mendapatkan akses smithing table virtual.<br>\
+      Mendapatkan akses merubah cuaca world.<br>\
+      Mendapatkan akses mengubah waktu world.<br>\
+      Mendapatkan akses loom virtual.<br>\
+      Mendapatkan akses grindstone virtual.<br>\
+      Mendapatkan akses cartography table virtual.<br>\
+      Mendapatkan akses compass untuk melihat arah.<br>\
+      Mendapatkan akses disposal untuk membuat item yang sudah tidak digunakan.<br>\
+      Mendapatkan akses recipe untuk melihat bahan pembuatan item.<br>\
+      Mendapatkan akses feed untuk memenuhi kembali hunger bar.<br>\
+      Mendapatkan akses fix untuk memperbaiki durability tools.<br>\
+      Mendapatkan akses ender chest virtual.<br>\
+      Mendapatkan akses eheal untuk memenuhi kembali health bar.',
+      
+      '/Mendapatkan akses /kit - Celestia Kits.<br>\
+      /Mendapatkan akses /reward - Daily Reward Celestia.<br>\
+      /Mendapatkan akses /sethome - dengan jumlah 8.<br>\
+      /Mendapatkan akses /pw create - dengan jumlah 7.<br>\
+      /Mendapatkan akses /pv 1-6 - penyimpangan seluas Large Chest.<br>\
+      /Mendapatkan akses /craft - membuka virtual crafting table dimanapun dan kapanpun.<br>\
+      /Mendapatkan akses /spin - movement player berputar seperti angin topan.<br>\
+      /Mendapatkan akses /stonecutter - membuka virtual stone cutter dimanapun dan kapanpun.<br>\
+      /Mendapatkan akses /smithingtable - membuka virtual smithing table dimanapun dan kapanpun.<br>\
+      /Mendapatkan akses /pweather - mengubah cuaca world.<br>\
+      /Mendapatkan akses /ptime - mengubah waktu world.<br>\
+      /Mendapatkan akses /loom - membuka loom dimanapun dan kapanpun.<br>\
+      /Mendapatkan akses /grindstone - membuka virtual grindstone dimanapun dan kapanpun.<br>\
+      /Mendapatkan akses /cartography - membuka virtual cartography dimanapun dan kapanpun.<br>\
+      /Mendapatkan akses /compass - memberitahu arah player.<br>\
+      /Mendapatkan akses /disposal - membuka virtual untuk membuang item.<br>\
+      /Mendapatkan akses /recipe - untuk membuka recipe dari sebuah item.<br>\
+      /Mendapatkan akses /feed - untuk memenuhi kembali hunger bar.<br>\
+      /Mendapatkan akses /fix - untuk memperbaiki durabilty item yang dipegang.<br>\
+      /Mendapatkan akses /eheal - untuk memenuhi kembali health bar.<br>\
+      /Mendapatkan akses /ec - untuk membuka ender chest virtual.<br>\
+      /Mendapatkan akses /crawl - movement player merangkak.')">Info Rank</a>
 </div>
+
 
 <!-- Glory -->
 <div class="card">
-    <img src="diamond.png" alt="Glory">
-    <h2>「Glory」 Rank</h2>
-    <div class="old-price">350.000</div>
-    <div class="price">310.000</div>
-    <a href="#" class="buy-btn" onclick="openModal(event)">Buy</a>
-    <a href="#" class="info-btn" onclick="openInfo('Glory',
-        'Mendapatkan seluruh akses rank Celestia, Mendapatkan prioritas urutan weight ke-8 di tab list player, Mendapatkan claim blocks sebesar 30k, Mendapatkan akses kits Glory, Mendapatkan akses PlayerVaults dengan jumlah 4, Mendapatkan akses sethome dengan jumlah 8, Mendapatkan akses disguise (ubah bentuk jadi mob), Mendapatkan akses backpack medium',
-        '/disguise [mob], /undisguise, /backpack')">Info Rank</a>
+  <img src="diamond.png" alt="Glory">
+  <h2>「Glory」 Rank</h2>
+  <div class="old-price">350.000</div>
+  <div class="price">310.000</div>
+  <a href="#" class="buy-btn" onclick="openModal(event)">Buy</a>
+  <a href="#" class="info-btn" onclick="openInfo('Glory',
+      'Mendapatkan claim blocks sebesar 30k.<br>\
+      Mendapatkan akses kits Glory.<br>\
+      Mendapatkan akses set home dengan jumlah 10.<br>\
+      Mendapatkan akses daily reward Glory.<br>\
+      Mendapatkan akses pembuatan warps dengan jumlah 9.<br>\
+      Mendapatkan akses PlayerVaults dengan jumlah 8.<br>\
+      Mendapatkan akses craft table virtual.<br>\
+      Mendapatkan akses melakukan spin player movement.<br>\
+      Mendapatkan akses stone cutter virtual.<br>\
+      Mendapatkan akses smithing table virtual.<br>\
+      Mendapatkan akses merubah cuaca world.<br>\
+      Mendapatkan akses mengubah waktu world.<br>\
+      Mendapatkan akses loom virtual.<br>\
+      Mendapatkan akses grindstone virtual.<br>\
+      Mendapatkan akses cartography table virtual.<br>\
+      Mendapatkan akses compass untuk melihat arah.<br>\
+      Mendapatkan akses disposal untuk membuat item yang sudah tidak digunakan.<br>\
+      Mendapatkan akses recipe untuk melihat bahan pembuatan item.<br>\
+      Mendapatkan akses feed untuk memenuhi kembali hunger bar.<br>\
+      Mendapatkan akses fix all untuk memperbaiki durability tools.<br>\
+      Mendapatkan akses ender chest virtual.<br>\
+      Mendapatkan akses anvil virtual.<br>\
+      Mendapatkan akses eheal untuk memenuhi kembali health bar.',
+      
+      '/Mendapatkan akses /kit - Glory Kits.<br>\
+      /Mendapatkan akses /reward - Daily Reward Glory.<br>\
+      /Mendapatkan akses /sethome - dengan jumlah 10.<br>\
+      /Mendapatkan akses /pw create - dengan jumlah 9.<br>\
+      /Mendapatkan akses /pv 1-8 - penyimpangan seluas Large Chest.<br>\
+      /Mendapatkan akses /craft - membuka virtual crafting table dimanapun dan kapanpun.<br>\
+      /Mendapatkan akses /spin - movement player berputar seperti angin topan.<br>\
+      /Mendapatkan akses /stonecutter - membuka virtual stone cutter dimanapun dan kapanpun.<br>\
+      /Mendapatkan akses /smithingtable - membuka virtual smithing table dimanapun dan kapanpun.<br>\
+      /Mendapatkan akses /pweather - mengubah cuaca world.<br>\
+      /Mendapatkan akses /ptime - mengubah waktu world.<br>\
+      /Mendapatkan akses /loom - membuka loom dimanapun dan kapanpun.<br>\
+      /Mendapatkan akses /grindstone - membuka virtual grindstone dimanapun dan kapanpun.<br>\
+      /Mendapatkan akses /cartography - membuka virtual cartography dimanapun dan kapanpun.<br>\
+      /Mendapatkan akses /compass - memberitahu arah player.<br>\
+      /Mendapatkan akses /disposal - membuka virtual untuk membuang item.<br>\
+      /Mendapatkan akses /recipe - untuk membuka recipe dari sebuah item.<br>\
+      /Mendapatkan akses /feed - untuk memenuhi kembali hunger bar.<br>\
+      /Mendapatkan akses /fix all - untuk memperbaiki durabilty seluruh item di inventory.<br>\
+      /Mendapatkan akses /eheal - untuk memenuhi kembali health bar.<br>\
+      /Mendapatkan akses /ec - untuk membuka ender chest virtual.<br>\
+      /Mendapatkan akses /anvil - untuk membuka anvil virtual.<br>\
+      /Mendapatkan akses /crawl - movement player merangkak.')">Info Rank</a>
 </div>
+
 
 <!-- Vanguard -->
 <div class="card">
-    <img src="diamond.png" alt="Vanguard">
-    <h2>「Vanguard」 Rank</h2>
-    <div class="old-price">520.000</div>
-    <div class="price">480.000</div>
-    <a href="#" class="buy-btn" onclick="openModal(event)">Buy</a>
-    <a href="#" class="info-btn" onclick="openInfo('Vanguard',
-        'Mendapatkan seluruh akses rank Glory, Mendapatkan prioritas urutan weight ke-6 di tab list player, Mendapatkan claim blocks sebesar 40k, Mendapatkan akses kits Vanguard, Mendapatkan akses PlayerVaults dengan jumlah 5, Mendapatkan akses sethome dengan jumlah 10, Mendapatkan akses heal (instant full HP), Mendapatkan akses backpack besar',
-        '/heal, /backpack')">Info Rank</a>
+  <img src="diamond.png" alt="Vanguard">
+  <h2>「Vanguard」 Rank</h2>
+  <div class="price">480.000</div>
+  <a href="#" class="buy-btn" onclick="openModal(event)">Buy</a>
+  <a href="#" class="info-btn" onclick="openInfo('Vanguard',
+      'Mendapatkan claim blocks sebesar 32k.<br>\
+      Mendapatkan akses kits Vanguard.<br>\
+      Mendapatkan akses set home dengan jumlah 11.<br>\
+      Mendapatkan akses daily reward Vanguard.<br>\
+      Mendapatkan akses pembuatan warps dengan jumlah 10.<br>\
+      Mendapatkan akses PlayerVaults dengan jumlah 9.<br>\
+      Mendapatkan akses craft table virtual.<br>\
+      Mendapatkan akses melakukan spin player movement.<br>\
+      Mendapatkan akses stone cutter virtual.<br>\
+      Mendapatkan akses smithing table virtual.<br>\
+      Mendapatkan akses merubah cuaca world.<br>\
+      Mendapatkan akses mengubah waktu world.<br>\
+      Mendapatkan akses loom virtual.<br>\
+      Mendapatkan akses grindstone virtual.<br>\
+      Mendapatkan akses cartography table virtual.<br>\
+      Mendapatkan akses compass untuk melihat arah.<br>\
+      Mendapatkan akses disposal untuk membuat item yang sudah tidak digunakan.<br>\
+      Mendapatkan akses recipe untuk melihat bahan pembuatan item.<br>\
+      Mendapatkan akses feed untuk memenuhi kembali hunger bar.<br>\
+      Mendapatkan akses fix all untuk memperbaiki durability tools.<br>\
+      Mendapatkan akses ender chest virtual.<br>\
+      Mendapatkan akses anvil virtual.<br>\
+      Mendapatkan akses eheal untuk memenuhi kembali health bar.<br>\
+      Mendapatkan akses mode god yaitu menambah efek Resistance V.',
+      
+      '/Mendapatkan akses /kit - Vanguard Kits.<br>\
+      /Mendapatkan akses /reward - Daily Reward Vanguard.<br>\
+      /Mendapatkan akses /sethome - dengan jumlah 11.<br>\
+      /Mendapatkan akses /pw create - dengan jumlah 10.<br>\
+      /Mendapatkan akses /pv 1-9 - penyimpangan seluas Large Chest.<br>\
+      /Mendapatkan akses /craft - membuka virtual crafting table dimanapun dan kapanpun.<br>\
+      /Mendapatkan akses /spin - movement player berputar seperti angin topan.<br>\
+      /Mendapatkan akses /stonecutter - membuka virtual stone cutter dimanapun dan kapanpun.<br>\
+      /Mendapatkan akses /smithingtable - membuka virtual smithing table dimanapun dan kapanpun.<br>\
+      /Mendapatkan akses /pweather - mengubah cuaca world.<br>\
+      /Mendapatkan akses /ptime - mengubah waktu world.<br>\
+      /Mendapatkan akses /loom - membuka virtual loom dimanapun dan kapanpun.<br>\
+      /Mendapatkan akses /grindstone - membuka virtual grindstone dimanapun dan kapanpun.<br>\
+      /Mendapatkan akses /cartography - membuka virtual cartography dimanapun dan kapanpun.<br>\
+      /Mendapatkan akses /compass - memberitahu arah player.<br>\
+      /Mendapatkan akses /disposal - membuka virtual untuk membuang item.<br>\
+      /Mendapatkan akses /recipe - untuk membuka recipe dari sebuah item.<br>\
+      /Mendapatkan akses /feed - untuk memenuhi kembali hunger bar.<br>\
+      /Mendapatkan akses /fix all - untuk memperbaiki durabilty seluruh item di inventory.<br>\
+      /Mendapatkan akses /eheal - untuk memenuhi kembali health bar.<br>\
+      /Mendapatkan akses /ec - untuk membuka ender chest virtual.<br>\
+      /Mendapatkan akses /anvil - untuk membuka anvil virtual.<br>\
+      /Mendapatkan akses /crawl - movement player merangkak.<br>\
+      /Mendapatkan akses /god - untuk menambah efek Resistance V.')">Info Rank</a>
 </div>
+
 
 <!-- Exalt -->
 <div class="card">
-    <img src="diamond.png" alt="Exalt">
-    <h2>「Exalt」 Rank</h2>
-    <div class="old-price">700.000</div>
-    <div class="price">650.000</div>
-    <a href="#" class="buy-btn" onclick="openModal(event)">Buy</a>
-    <a href="#" class="info-btn" onclick="openInfo('Exalt',
-        'Mendapatkan seluruh akses rank Vanguard, Mendapatkan prioritas urutan weight ke-5 di tab list player, Mendapatkan claim blocks sebesar 50k, Mendapatkan akses kits Exalt, Mendapatkan akses PlayerVaults dengan jumlah 6, Mendapatkan akses sethome dengan jumlah 12, Mendapatkan akses warna dan format chat',
-        '/chatcolor, /format')">Info Rank</a>
+  <img src="diamond.png" alt="Exalt">
+  <h2>「Exalt」 Rank</h2>
+  <div class="old-price">700.000</div>
+  <div class="price">650.000</div>
+  <a href="#" class="buy-btn" onclick="openModal(event)">Buy</a>
+  <a href="#" class="info-btn" onclick="openInfo('Exalt',
+      'Mendapatkan claim blocks sebesar 36k.<br>\
+      Mendapatkan akses kits Exalt.<br>\
+      Mendapatkan akses set home dengan jumlah 12.<br>\
+      Mendapatkan akses daily reward Exalt.<br>\
+      Mendapatkan akses pembuatan warps dengan jumlah 11.<br>\
+      Mendapatkan akses PlayerVaults dengan jumlah 10.<br>\
+      Mendapatkan akses craft table virtual.<br>\
+      Mendapatkan akses melakukan spin player movement.<br>\
+      Mendapatkan akses stone cutter virtual.<br>\
+      Mendapatkan akses smithing table virtual.<br>\
+      Mendapatkan akses merubah cuaca world.<br>\
+      Mendapatkan akses mengubah waktu world.<br>\
+      Mendapatkan akses loom virtual.<br>\
+      Mendapatkan akses grindstone virtual.<br>\
+      Mendapatkan akses cartography table virtual.<br>\
+      Mendapatkan akses compass untuk melihat arah.<br>\
+      Mendapatkan akses disposal untuk membuat item yang sudah tidak digunakan.<br>\
+      Mendapatkan akses recipe untuk melihat bahan pembuatan item.<br>\
+      Mendapatkan akses feed untuk memenuhi kembali hunger bar.<br>\
+      Mendapatkan akses fix all untuk memperbaiki durability tools.<br>\
+      Mendapatkan akses ender chest virtual.<br>\
+      Mendapatkan akses anvil virtual.<br>\
+      Mendapatkan akses eheal untuk memenuhi kembali health bar.<br>\
+      Mendapatkan akses mode god yaitu menambah efek Resistance V.',
+      
+      '/Mendapatkan akses /kit - Exalt Kits.<br>\
+      /Mendapatkan akses /reward - Daily Reward Exalt.<br>\
+      /Mendapatkan akses /sethome - dengan jumlah 12.<br>\
+      /Mendapatkan akses /pw create - dengan jumlah 11.<br>\
+      /Mendapatkan akses /pv 1-10 - penyimpangan seluas Large Chest.<br>\
+      /Mendapatkan akses /craft - membuka virtual crafting table dimanapun dan kapanpun.<br>\
+      /Mendapatkan akses /spin - movement player berputar seperti angin topan.<br>\
+      /Mendapatkan akses /stonecutter - membuka virtual stone cutter dimanapun dan kapanpun.<br>\
+      /Mendapatkan akses /smithingtable - membuka virtual smithing table dimanapun dan kapanpun.<br>\
+      /Mendapatkan akses /pweather - mengubah cuaca world.<br>\
+      /Mendapatkan akses /ptime - mengubah waktu world.<br>\
+      /Mendapatkan akses /loom - membuka loom dimanapun dan kapanpun.<br>\
+      /Mendapatkan akses /grindstone - membuka virtual grindstone dimanapun dan kapanpun.<br>\
+      /Mendapatkan akses /cartography - membuka virtual cartography dimanapun dan kapanpun.<br>\
+      /Mendapatkan akses /compass - memberitahu arah player.<br>\
+      /Mendapatkan akses /disposal - membuka virtual untuk membuang item.<br>\
+      /Mendapatkan akses /recipe - untuk membuka recipe dari sebuah item.<br>\
+      /Mendapatkan akses /feed - untuk memenuhi kembali hunger bar.<br>\
+      /Mendapatkan akses /fix all - untuk memperbaiki durabilty seluruh item di inventory.<br>\
+      /Mendapatkan akses /eheal - untuk memenuhi kembali health bar.<br>\
+      /Mendapatkan akses /ec - untuk membuka ender chest virtual.<br>\
+      /Mendapatkan akses /anvil - untuk membuka anvil virtual.<br>\
+      /Mendapatkan akses /crawl - movement player merangkak.<br>\
+      /Mendapatkan akses /god - untuk menambah efek Resistance V.')">Info Rank</a>
 </div>
+
 
 <!-- Mythic -->
 <div class="card">
-    <img src="diamond.png" alt="Mythic">
-    <h2>「Mythic」 Rank</h2>
-    <div class="old-price">820.000</div>
-    <div class="price">770.000</div>
-    <a href="#" class="buy-btn" onclick="openModal(event)">Buy</a>
-    <a href="#" class="info-btn" onclick="openInfo('Mythic',
-        'Mendapatkan seluruh akses rank Exalt, Mendapatkan prioritas urutan weight ke-4 di tab list player, Mendapatkan claim blocks sebesar 65k, Mendapatkan akses kits Mythic, Mendapatkan akses PlayerVaults dengan jumlah 8, Mendapatkan akses sethome dengan jumlah 15, Mendapatkan akses untuk spawn entity tertentu',
-        '/summon [entity]')">Info Rank</a>
+  <img src="diamond.png" alt="Mythic">
+  <h2>「Mythic」 Rank</h2>
+  <div class="old-price">800.000</div>
+  <div class="price">770.000</div>
+  <a href="#" class="buy-btn" onclick="openModal(event)">Buy</a>
+  <a href="#" class="info-btn" onclick="openInfo('Mythic',
+      'Mendapatkan claim blocks sebesar 55k.<br>\
+      Mendapatkan akses kits Mythic.<br>\
+      Mendapatkan akses set home dengan jumlah 14.<br>\
+      Mendapatkan akses daily reward Mythic.<br>\
+      Mendapatkan akses pembuatan warps dengan jumlah 13.<br>\
+      Mendapatkan akses PlayerVaults dengan jumlah 12.<br>\
+      Mendapatkan akses craft table virtual.<br>\
+      Mendapatkan akses melakukan spin player movement.<br>\
+      Mendapatkan akses stone cutter virtual.<br>\
+      Mendapatkan akses smithing table virtual.<br>\
+      Mendapatkan akses merubah cuaca world.<br>\
+      Mendapatkan akses mengubah waktu world.<br>\
+      Mendapatkan akses loom virtual.<br>\
+      Mendapatkan akses grindstone virtual.<br>\
+      Mendapatkan akses cartography table virtual.<br>\
+      Mendapatkan akses compass untuk melihat arah.<br>\
+      Mendapatkan akses disposal untuk membuat item yang sudah tidak digunakan.<br>\
+      Mendapatkan akses recipe untuk melihat bahan pembuatan item.<br>\
+      Mendapatkan akses feed untuk memenuhi kembali hunger bar.<br>\
+      Mendapatkan akses fix all untuk memperbaiki durability tools.<br>\
+      Mendapatkan akses ender chest virtual.<br>\
+      Mendapatkan akses anvil virtual.<br>\
+      Mendapatkan akses eheal untuk memenuhi kembali health bar.<br>\
+      Mendapatkan akses mode god yaitu menambah efek Resistance V.',
+      
+      '/Mendapatkan akses /kit - Mythic Kits.<br>\
+      /Mendapatkan akses /reward - Daily Reward Mythic.<br>\
+      /Mendapatkan akses /sethome - dengan jumlah 14.<br>\
+      /Mendapatkan akses /pw create - dengan jumlah 13.<br>\
+      /Mendapatkan akses /pv 1-12 - penyimpangan seluas Large Chest.<br>\
+      /Mendapatkan akses /craft - membuka virtual crafting table dimanapun dan kapanpun.<br>\
+      /Mendapatkan akses /spin - movement player berputar seperti angin topan.<br>\
+      /Mendapatkan akses /stonecutter - membuka virtual stone cutter dimanapun dan kapanpun.<br>\
+      /Mendapatkan akses /smithingtable - membuka virtual smithing table dimanapun dan kapanpun.<br>\
+      /Mendapatkan akses /pweather - mengubah cuaca world.<br>\
+      /Mendapatkan akses /ptime - mengubah waktu world.<br>\
+      /Mendapatkan akses /loom - membuka loom dimanapun dan kapanpun.<br>\
+      /Mendapatkan akses /grindstone - membuka virtual grindstone dimanapun dan kapanpun.<br>\
+      /Mendapatkan akses /cartography - membuka virtual cartography dimanapun dan kapanpun.<br>\
+      /Mendapatkan akses /compass - memberitahu arah player.<br>\
+      /Mendapatkan akses /disposal - membuka virtual untuk membuang item.<br>\
+      /Mendapatkan akses /recipe - untuk membuka recipe dari sebuah item.<br>\
+      /Mendapatkan akses /feed - untuk memenuhi kembali hunger bar.<br>\
+      /Mendapatkan akses /fix all - untuk memperbaiki durabilty seluruh item di inventory.<br>\
+      /Mendapatkan akses /eheal - untuk memenuhi kembali health bar.<br>\
+      /Mendapatkan akses /ec - untuk membuka ender chest virtual.<br>\
+      /Mendapatkan akses /anvil - untuk membuka anvil virtual.<br>\
+      /Mendapatkan akses /crawl - movement player merangkak.<br>\
+      /Mendapatkan akses /god - untuk menambah efek Resistance V.')">Info Rank</a>
 </div>
+
 
 <!-- Immortal -->
 <div class="card">
-    <img src="diamond.png" alt="Immortal">
-    <h2>「Immortal」 Rank</h2>
-    <div class="old-price">900.000</div>
-    <div class="price">850.000</div>
-    <a href="#" class="buy-btn" onclick="openModal(event)">Buy</a>
-    <a href="#" class="info-btn" onclick="openInfo('Immortal',
-        'Mendapatkan seluruh akses rank Mythic, Mendapatkan prioritas urutan weight ke-3 di tab list player, Mendapatkan claim blocks sebesar 80k, Mendapatkan akses kits Immortal, Mendapatkan akses PlayerVaults dengan jumlah 10, Mendapatkan akses sethome dengan jumlah 20, Mendapatkan akses fly permanen di seluruh subserver survival, Mendapatkan akses disguise premium',
-        '/fly, /disguise [advanced]')">Info Rank</a>
+  <img src="diamond.png" alt="Immortal">
+  <h2>「Immortal」 Rank</h2>
+  <div class="old-price">900.000</div>
+  <div class="price">850.000</div>
+  <a href="#" class="buy-btn" onclick="openModal(event)">Buy</a>
+  <a href="#" class="info-btn" onclick="openInfo('Immortal',
+      'Mendapatkan claim blocks sebesar 67k.<br>\
+      Mendapatkan akses kits Divine.<br>\
+      Mendapatkan akses set home dengan jumlah 15.<br>\
+      Mendapatkan akses daily reward Divine.<br>\
+      Mendapatkan akses pembuatan warps dengan jumlah 14.<br>\
+      Mendapatkan akses PlayerVaults dengan jumlah 13.<br>\
+      Mendapatkan akses craft table virtual.<br>\
+      Mendapatkan akses melakukan spin player movement.<br>\
+      Mendapatkan akses stone cutter virtual.<br>\
+      Mendapatkan akses smithing table virtual.<br>\
+      Mendapatkan akses merubah cuaca world.<br>\
+      Mendapatkan akses mengubah waktu world.<br>\
+      Mendapatkan akses loom virtual.<br>\
+      Mendapatkan akses grindstone virtual.<br>\
+      Mendapatkan akses cartography table virtual.<br>\
+      Mendapatkan akses compass untuk melihat arah.<br>\
+      Mendapatkan akses disposal untuk membuat item yang sudah tidak digunakan.<br>\
+      Mendapatkan akses recipe untuk melihat bahan pembuatan item.<br>\
+      Mendapatkan akses feed untuk memenuhi kembali hunger bar.<br>\
+      Mendapatkan akses fix all untuk memperbaiki durability tools.<br>\
+      Mendapatkan akses ender chest virtual.<br>\
+      Mendapatkan akses anvil virtual.<br>\
+      Mendapatkan akses eheal untuk memenuhi kembali health bar.<br>\
+      Mendapatkan akses mode god yaitu menambah efek Resistance V.',
+      
+      '/Mendapatkan akses /kit - Divine Kits.<br>\
+      /Mendapatkan akses /reward - Daily Reward Divine.<br>\
+      /Mendapatkan akses /sethome - dengan jumlah 15.<br>\
+      /Mendapatkan akses /pw create - dengan jumlah 14.<br>\
+      /Mendapatkan akses /pv 1-13 - penyimpangan seluas Large Chest.<br>\
+      /Mendapatkan akses /craft - membuka virtual crafting table dimanapun dan kapanpun.<br>\
+      /Mendapatkan akses /spin - movement player berputar seperti angin topan.<br>\
+      /Mendapatkan akses /stonecutter - membuka virtual stone cutter dimanapun dan kapanpun.<br>\
+      /Mendapatkan akses /smithingtable - membuka virtual smithing table dimanapun dan kapanpun.<br>\
+      /Mendapatkan akses /pweather - mengubah cuaca world.<br>\
+      /Mendapatkan akses /ptime - mengubah waktu world.<br>\
+      /Mendapatkan akses /loom - membuka loom dimanapun dan kapanpun.<br>\
+      /Mendapatkan akses /grindstone - membuka virtual grindstone dimanapun dan kapanpun.<br>\
+      /Mendapatkan akses /cartography - membuka virtual cartography dimanapun dan kapanpun.<br>\
+      /Mendapatkan akses /compass - memberitahu arah player.<br>\
+      /Mendapatkan akses /disposal - membuka virtual untuk membuang item.<br>\
+      /Mendapatkan akses /recipe - untuk membuka recipe dari sebuah item.<br>\
+      /Mendapatkan akses /feed - untuk memenuhi kembali hunger bar.<br>\
+      /Mendapatkan akses /fix all - untuk memperbaiki durabilty seluruh item di inventory.<br>\
+      /Mendapatkan akses /eheal - untuk memenuhi kembali health bar.<br>\
+      /Mendapatkan akses /ec - untuk membuka ender chest virtual.<br>\
+      /Mendapatkan akses /anvil - untuk membuka anvil virtual.<br>\
+      /Mendapatkan akses /crawl - movement player merangkak.<br>\
+      /Mendapatkan akses /god - untuk menambah efek Resistance V.')">Info Rank</a>
 </div>
+
 
 <!-- Shadow -->
 <div class="card">
-    <img src="diamond.png" alt="Shadow">
-    <h2>「Shadow」 Rank</h2>
-    <div class="old-price">1.050.000</div>
-    <div class="price">960.000</div>
-    <a href="#" class="buy-btn" onclick="openModal(event)">Buy</a>
-    <a href="#" class="info-btn" onclick="openInfo('Shadow',
-        'Mendapatkan seluruh akses rank Immortal, Mendapatkan prioritas urutan weight ke-2 di tab list player, Mendapatkan claim blocks sebesar 100k, Mendapatkan akses kits Shadow, Mendapatkan akses PlayerVaults dengan jumlah 12, Mendapatkan akses sethome dengan jumlah 25, Mendapatkan akses vanish (menghilang dari player lain)',
-        '/vanish, /reappear')">Info Rank</a>
+  <img src="diamond.png" alt="Shadow">
+  <h2>「Shadow」 Rank</h2>
+  <div class="old-price">1.000.000</div>
+  <div class="price">960.000</div>
+  <a href="#" class="buy-btn" onclick="openModal(event)">Buy</a>
+  <a href="#" class="info-btn" onclick="openInfo('Shadow',
+      'Mendapatkan claim blocks sebesar 92k.<br>\
+      Mendapatkan akses kits Immortal.<br>\
+      Mendapatkan akses set home dengan jumlah 16.<br>\
+      Mendapatkan akses daily reward Immortal.<br>\
+      Mendapatkan akses pembuatan warps dengan jumlah 15.<br>\
+      Mendapatkan akses PlayerVaults dengan jumlah 14.<br>\
+      Mendapatkan akses craft table virtual.<br>\
+      Mendapatkan akses melakukan spin player movement.<br>\
+      Mendapatkan akses stone cutter virtual.<br>\
+      Mendapatkan akses smithing table virtual.<br>\
+      Mendapatkan akses merubah cuaca world.<br>\
+      Mendapatkan akses mengubah waktu world.<br>\
+      Mendapatkan akses loom virtual.<br>\
+      Mendapatkan akses grindstone virtual.<br>\
+      Mendapatkan akses cartography table virtual.<br>\
+      Mendapatkan akses compass untuk melihat arah.<br>\
+      Mendapatkan akses disposal untuk membuat item yang sudah tidak digunakan.<br>\
+      Mendapatkan akses recipe untuk melihat bahan pembuatan item.<br>\
+      Mendapatkan akses feed untuk memenuhi kembali hunger bar.<br>\
+      Mendapatkan akses fix all untuk memperbaiki durability tools.<br>\
+      Mendapatkan akses ender chest virtual.<br>\
+      Mendapatkan akses anvil virtual.<br>\
+      Mendapatkan akses eheal untuk memenuhi kembali health bar.<br>\
+      Mendapatkan akses mode god yaitu menambah efek Resistance V.',
+      
+      '/Mendapatkan akses /kit - Immortal Kits.<br>\
+      /Mendapatkan akses /reward - Daily Reward Immortal.<br>\
+      /Mendapatkan akses /sethome - dengan jumlah 16.<br>\
+      /Mendapatkan akses /pw create - dengan jumlah 15.<br>\
+      /Mendapatkan akses /pv 1-14 - penyimpangan seluas Large Chest.<br>\
+      /Mendapatkan akses /craft - membuka virtual crafting table dimanapun dan kapanpun.<br>\
+      /Mendapatkan akses /spin - movement player berputar seperti angin topan.<br>\
+      /Mendapatkan akses /stonecutter - membuka virtual stone cutter dimanapun dan kapanpun.<br>\
+      /Mendapatkan akses /smithingtable - membuka virtual smithing table dimanapun dan kapanpun.<br>\
+      /Mendapatkan akses /pweather - mengubah cuaca world.<br>\
+      /Mendapatkan akses /ptime - mengubah waktu world.<br>\
+      /Mendapatkan akses /loom - membuka loom dimanapun dan kapanpun.<br>\
+      /Mendapatkan akses /grindstone - membuka virtual grindstone dimanapun dan kapanpun.<br>\
+      /Mendapatkan akses /cartography - membuka virtual cartography dimanapun dan kapanpun.<br>\
+      /Mendapatkan akses /compass - memberitahu arah player.<br>\
+      /Mendapatkan akses /disposal - membuka virtual untuk membuang item.<br>\
+      /Mendapatkan akses /recipe - untuk membuka recipe dari sebuah item.<br>\
+      /Mendapatkan akses /feed - untuk memenuhi kembali hunger bar.<br>\
+      /Mendapatkan akses /fix all - untuk memperbaiki durabilty seluruh item di inventory.<br>\
+      /Mendapatkan akses /eheal - untuk memenuhi kembali health bar.<br>\
+      /Mendapatkan akses /ec - untuk membuka ender chest virtual.<br>\
+      /Mendapatkan akses /anvil - untuk membuka anvil virtual.<br>\
+      /Mendapatkan akses /crawl - movement player merangkak.<br>\
+      /Mendapatkan akses /god - untuk menambah efek Resistance V.')">Info Rank</a>
 </div>
+
 
 <!-- Myrionz -->
 <div class="card">
-    <img src="diamond.png" alt="Myrionz">
-    <h2>「Myrionz」 Rank</h2>
-    <div class="old-price">1.100.000</div>
-    <div class="price">1.000.000</div>
-    <a href="#" class="buy-btn" onclick="openModal(event)">Buy</a>
-    <a href="#" class="info-btn" onclick="openInfo('Myrionz',
-        'Mendapatkan seluruh akses rank Shadow, Prioritas weight #1 di tab list player, Claim blocks 150k, Akses kits Myrionz (OP & eksklusif), Akses PlayerVaults (15 PV), Akses sethome hingga 30, Akses semua virtual utilities (craft, anvil, enderchest, backpack max, disposal), Akses full disguise, vanish, nick, fly unlimited, Daily & Monthly Rewards, Repair Token Gratis bulanan, Private warp, Title Prefix eksklusif, Chat color & format lengkap, Akses hologram pribadi, Particle effect eksklusif, Hat 3D, AFK bypass, Full pets, Mount eksklusif, Music system',
-        '/fly, /god, /vanish, /nick, /disguise, /pv 1-15, /sethome, /home, /ec, /backpack, /craft, /anvil, /disposal, /heal, /feed, /repair, /repair all, /hat, /ptime, /pweather, /tptoggle, /warp, /back, /near, /ignore, /msgcolor, /afk, /pets, /mounts, /music')">Info Rank</a>
+  <img src="diamond.png" alt="Myrionz">
+  <h2>「Myrionz」 Rank</h2>
+  <div class="old-price">1.100.000</div>
+  <div class="price">1.000.000</div>
+  <a href="#" class="buy-btn" onclick="openModal(event)">Buy</a>
+  <a href="#" class="info-btn" onclick="openInfo('Myrionz',
+      'Mendapatkan claim blocks sebesar 142k.<br>\
+      Mendapatkan akses kits Miracle.<br>\
+      Mendapatkan akses set home dengan jumlah 17.<br>\
+      Mendapatkan akses daily reward Miracle.<br>\
+      Mendapatkan akses pembuatan warps dengan jumlah 16.<br>\
+      Mendapatkan akses PlayerVaults dengan jumlah 15.<br>\
+      Mendapatkan akses craft table virtual.<br>\
+      Mendapatkan akses melakukan spin player movement.<br>\
+      Mendapatkan akses stone cutter virtual.<br>\
+      Mendapatkan akses smithing table virtual.<br>\
+      Mendapatkan akses merubah cuaca world.<br>\
+      Mendapatkan akses mengubah waktu world.<br>\
+      Mendapatkan akses loom virtual.<br>\
+      Mendapatkan akses grindstone virtual.<br>\
+      Mendapatkan akses cartography table virtual.<br>\
+      Mendapatkan akses compass untuk melihat arah.<br>\
+      Mendapatkan akses disposal untuk membuat item yang sudah tidak digunakan.<br>\
+      Mendapatkan akses recipe untuk melihat bahan pembuatan item.<br>\
+      Mendapatkan akses feed untuk memenuhi kembali hunger bar.<br>\
+      Mendapatkan akses fix all untuk memperbaiki durability tools.<br>\
+      Mendapatkan akses ender chest virtual.<br>\
+      Mendapatkan akses anvil virtual.<br>\
+      Mendapatkan akses eheal untuk memenuhi kembali health bar.<br>\
+      Mendapatkan akses mode god yaitu menambah efek Resistance V.<br>\
+      Mendapatkan akses chest sort yaitu merapihkan isi chest menggunakan button tertentu.',
+      
+      '/Mendapatkan akses /kit - Miracle Kits.<br>\
+      /Mendapatkan akses /reward - Daily Reward Miracle.<br>\
+      /Mendapatkan akses /sethome - dengan jumlah 17.<br>\
+      /Mendapatkan akses /pw create - dengan jumlah 16.<br>\
+      /Mendapatkan akses /pv 1-15 - penyimpangan seluas Large Chest.<br>\
+      /Mendapatkan akses /craft - membuka virtual crafting table dimanapun dan kapanpun.<br>\
+      /Mendapatkan akses /spin - movement player berputar seperti angin topan.<br>\
+      /Mendapatkan akses /stonecutter - membuka virtual stone cutter dimanapun dan kapanpun.<br>\
+      /Mendapatkan akses /smithingtable - membuka virtual smithing table dimanapun dan kapanpun.<br>\
+      /Mendapatkan akses /pweather - mengubah cuaca world.<br>\
+      /Mendapatkan akses /ptime - mengubah waktu world.<br>\
+      /Mendapatkan akses /loom - membuka loom dimanapun dan kapanpun.<br>\
+      /Mendapatkan akses /grindstone - membuka virtual grindstone dimanapun dan kapanpun.<br>\
+      /Mendapatkan akses /cartography - membuka virtual cartography dimanapun dan kapanpun.<br>\
+      /Mendapatkan akses /compass - memberitahu arah player.<br>\
+      /Mendapatkan akses /disposal - membuka virtual untuk membuang item.<br>\
+      /Mendapatkan akses /recipe - untuk membuka recipe dari sebuah item.<br>\
+      /Mendapatkan akses /feed - untuk memenuhi kembali hunger bar.<br>\
+      /Mendapatkan akses /fix all - untuk memperbaiki durabilty seluruh item di inventory.<br>\
+      /Mendapatkan akses /eheal - untuk memenuhi kembali health bar.<br>\
+      /Mendapatkan akses /ec - untuk membuka ender chest virtual.<br>\
+      /Mendapatkan akses /anvil - untuk membuka anvil virtual.<br>\
+      /Mendapatkan akses /crawl - movement player merangkak.<br>\
+      /Mendapatkan akses /god - untuk menambah efek Resistance V.<br>\
+      /Mendapatkan akses /chestsort - untuk menyorting isi dalam chest.')">Info Rank</a>
 </div>
-
 
 
         </div>
@@ -309,35 +760,44 @@ body {
     <div id="infoModalContent">
         <span id="closeInfo">✖</span>
         <h2 id="rankName">NAMA RANK</h2>
-        <h3>Benefits:</h3>
+        <h3>🎖️ Benefits:</h3>
         <p id="rankBenefits">Mendapatkan akses temp fly 10 menit daily (bertumpuk).</p>
-        <h3>Commands:</h3>
-        <p id="rankCommands">/tempfly - Temporary fly 10 menit daily</p>
+        <h3>📜 Commands:</h3>
+        <div class="commands-box" id="rankCommands">/tempfly - Temporary fly 10 menit daily</div>
     </div>
 </div>
 
 <script>
-function openModal(e){
-    e.preventDefault();
-    document.getElementById('buyModal').style.display = 'flex';
-}
-document.getElementById('closeModal').onclick = function() {
-    document.getElementById('buyModal').style.display = 'none';
-}
-function openInfo(name, benefits, commands){
-    document.getElementById('rankName').innerText = name;
-    document.getElementById('rankBenefits').innerText = benefits;
-    document.getElementById('rankCommands').innerText = commands;
-    document.getElementById('infoModal').style.display = 'flex';
-}
-document.getElementById('closeInfo').onclick = function() {
-    document.getElementById('infoModal').style.display = 'none';
-}
-window.onclick = function(event) {
-    if(event.target.id === 'buyModal') { document.getElementById('buyModal').style.display = 'none'; }
-    if(event.target.id === 'infoModal') { document.getElementById('infoModal').style.display = 'none'; }
-}
-</script>
+  function openModal(e){
+      e.preventDefault();
+      document.getElementById('buyModal').style.display = 'flex';
+  }
+  
+  document.getElementById('closeModal').onclick = function() {
+      document.getElementById('buyModal').style.display = 'none';
+  }
+  
+  function openInfo(name, benefits, commands){
+      document.getElementById('rankName').innerText = name;
+      document.getElementById('rankBenefits').innerHTML = benefits; // ✅ benefits pakai innerHTML
+      document.getElementById('rankCommands').innerHTML = commands; // ✅ commands juga pakai innerHTML
+      document.getElementById('infoModal').style.display = 'flex';
+  }
+  
+  document.getElementById('closeInfo').onclick = function() {
+      document.getElementById('infoModal').style.display = 'none';
+  }
+  
+  window.onclick = function(event) {
+      if(event.target.id === 'buyModal') { 
+          document.getElementById('buyModal').style.display = 'none'; 
+      }
+      if(event.target.id === 'infoModal') { 
+          document.getElementById('infoModal').style.display = 'none'; 
+      }
+  }
+  </script>
+  
 
 <footer style="background-color:#4a1e78; text-align:center; padding:20px; font-family:Arial, sans-serif;">
     <p style="color:#ccc; margin:5px 0;">© Iciki Smp, All rights reserved</p>
@@ -346,7 +806,9 @@ window.onclick = function(event) {
       <a href="how-to-buy.html" style="color:#f7931e; text-decoration:none; margin:0 10px; font-weight:bold;">How to Buy Rank</a> |
       <a href="https://discord.gg/JYS6N85TjE" target="_blank" style="color:#f7931e; text-decoration:none; margin:0 10px; font-weight:bold;">Discord</a>
     </div>
-  </footer>
+</footer>
 
 </body>
 </html>
+
+
